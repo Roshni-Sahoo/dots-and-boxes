@@ -1,7 +1,3 @@
-# Author: aqeelanwar
-# Created: 13 March,2020, 9:19 PM
-# Email: aqeel.anwar@gatech.edu
-
 from tkinter import *
 import numpy as np
 
@@ -20,9 +16,6 @@ edge_width = 0.1*size_of_board/number_of_dots
 distance_between_dots = size_of_board / (number_of_dots)
 
 class Dots_and_Boxes():
-    # ------------------------------------------------------------------
-    # Initialization functions
-    # ------------------------------------------------------------------
     def __init__(self):
         self.window = Tk()
         self.window.title('Dots_and_Boxes')
@@ -39,7 +32,6 @@ class Dots_and_Boxes():
         self.row_status = np.zeros(shape=(number_of_dots, number_of_dots - 1))
         self.col_status = np.zeros(shape=(number_of_dots - 1, number_of_dots))
         
-        # Input from user in form of clicks
         self.player1_starts = not self.player1_starts
         self.player1_turn = not self.player1_starts
         self.reset_board = False
@@ -50,11 +42,6 @@ class Dots_and_Boxes():
 
     def mainloop(self):
         self.window.mainloop()
-
-    # ------------------------------------------------------------------
-    # Logical Functions:
-    # The modules required to carry out game logic
-    # ------------------------------------------------------------------
 
     def is_grid_occupied(self, logical_position, type):
         r = logical_position[0]
@@ -125,11 +112,6 @@ class Dots_and_Boxes():
 
     def is_gameover(self):
         return (self.row_status == 1).all() and (self.col_status == 1).all()
-
-    # ------------------------------------------------------------------
-    # Drawing Functions:
-    # The modules required to draw required game based object on canvas
-    # ------------------------------------------------------------------
 
     def make_edge(self, type, logical_position):
         if type == 'row':
